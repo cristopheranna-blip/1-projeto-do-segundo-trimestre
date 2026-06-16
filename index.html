@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Clone - Coleção de Roupas</title>
+    <style>
+        /* Reset de Estilos Básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #111;
+        }
+
+        /* Cabeçalho / Navbar */
+        header {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            border-bottom: 1px solid #e5e5e5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #111;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: #707070;
+        }
+
+        /* Banner Principal (Hero) */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1556906781-9a412961c28c?q=80&w=1200') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .hero .btn {
+            background-color: #ffffff;
+            color: #111;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .hero .btn:hover {
+            background-color: #e5e5e5;
+            transform: scale(1.05);
+        }
+
+        /* Seção de Produtos */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .produto-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .produto-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .produto-img {
+            width: 100%;
+            height: 300px;
+            background-color: #f6f6f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: #aaa;
+            /* Usando imagens genéricas de exemplo */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .prod-1 { background-image: url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400'); }
+        .prod-2 { background-image: url('https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=400'); }
+        .prod-3 { background-image: url('https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=400'); }
+
+        .produto-info {
+            padding: 20px;
+        }
+
+        .produto-categoria {
+            font-size: 12px;
+            color: #707070;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .produto-nome {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .produto-preco {
+            font-size: 16px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #111;
+            color: #fff;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        footer p {
+            color: #707070;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>NIKE</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Lançamentos</a></li>
+                <li><a href="#">Masculino</a></li>
+                <li><a href="#">Feminino</a></li>
+                <li><a href="#">Snkrs</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Just Do It</h2>
+        <p>Explore as novas coleções e tecnologias para o seu treino.</p>
+        <a href="#" class="btn">Ver Novidades</a>
+    </section>
+
+    <main class="container">
+        <h3 class="section-title">Destaques da Semana</h3>
+        
+        <div class="grid-produtos">
+            <div class="produto-card">
+                <div class="produto-img prod-1"></div>
+                <div class="produto-info">
+                    <p class="produto-categoria">Corrida / Performance</p>
+                    <h4 class="produto-nome">Nike Air Max Dynamic</h4>
+                    <p class="produto-preco">R$ 899,99</p>
+                </div>
+            </div>
+
+            <div class="produto-card">
+                <div class="produto-img prod-2"></div>
+                <div class="produto-info">
+                    <p class="produto-categoria">Casual / Streetwear</p>
+                    <h4 class="produto-nome">Nike Dunk Low Essential</h4>
+                    <p class="produto-preco">R$ 749,99</p>
+                </div>
+            </div>
+
+            <div class="produto-card">
+                <div class="produto-img prod-3"></div>
+                <div class="produto-info">
+                    <p class="produto-categoria">Treino / Academia</p>
+                    <h4 class="produto-nome">Jaqueta Nike Windrunner</h4>
+                    <p class="produto-preco">R$ 549,99</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Nike Clone Inc. Todos os direitos reservados.</p>
+        <p>Criado para fins de estudo e portfólio.</p>
+    </footer>
+
+</body>
+</html>-
