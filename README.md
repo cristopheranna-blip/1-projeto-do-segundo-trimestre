@@ -1,1 +1,462 @@
-# 1-projeto-do-segundo-trimestre
+---# 1-projeto-do-segundo-trimestre
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nike Clone - Loja</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Helvetica Neue',Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5f5f5;
+    color:#111;
+}
+
+/* HEADER */
+
+header{
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    border-bottom:1px solid #e5e5e5;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo h1{
+    font-size:28px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.logo a{
+    text-decoration:none;
+    color:#111;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:20px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#111;
+    font-weight:600;
+}
+
+nav a:hover{
+    color:#777;
+}
+
+.cart{
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+    height:70vh;
+    background:
+    linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+    url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1600')
+    center/cover no-repeat;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero h2{
+    font-size:clamp(40px,6vw,70px);
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.hero p{
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+.btn{
+    display:inline-block;
+    background:white;
+    color:#111;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:30px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.search-box{
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:16px;
+    margin-bottom:30px;
+}
+
+.section-title{
+    margin-bottom:30px;
+    font-size:28px;
+}
+
+/* GRID */
+
+.grid-produtos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.produto-card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.produto-card:hover{
+    transform:translateY(-5px);
+}
+
+.produto-img{
+    height:300px;
+    background-size:cover;
+    background-position:center;
+}
+
+.prod-1{
+    background-image:url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=500');
+}
+
+.prod-2{
+    background-image:url('https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=500');
+}
+
+.prod-3{
+    background-image:url('https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=500');
+}
+
+.produto-info{
+    padding:20px;
+}
+
+.produto-categoria{
+    font-size:12px;
+    color:#777;
+    text-transform:uppercase;
+}
+
+.produto-nome{
+    margin:10px 0;
+    font-size:20px;
+}
+
+.produto-preco{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.btn-comprar{
+    width:100%;
+    margin-top:15px;
+    padding:12px;
+    border:none;
+    background:#111;
+    color:white;
+    cursor:pointer;
+    border-radius:6px;
+    transition:.3s;
+}
+
+.btn-comprar:hover{
+    background:#333;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+    margin-top:60px;
+}
+
+footer p{
+    color:#aaa;
+    margin-top:10px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header{
+    flex-direction:column;
+    gap:15px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero{
+    height:60vh;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+<a href="#">
+<h1>NIKE</h1>
+</a>
+</div>
+
+<nav>
+<ul>
+<li><a href="#lancamentos">Lançamentos</a></li>
+<li><a href="#masculino">Masculino</a></li>
+<li><a href="#feminino">Feminino</a></li>
+<li><a href="#snkrs">SNKRS</a></li>
+</ul>
+</nav>
+
+<div class="cart">
+🛒 <span id="cart-count">0</span>
+</div>
+
+</header>
+
+<section class="hero">
+
+<h2>Just Do It</h2>
+
+<p>Explore as novas coleções e tecnologias para o seu treino.</p>
+
+<a href="#lancamentos" class="btn">
+Ver Novidades
+</a>
+
+</section>
+
+<main class="container" id="lancamentos">
+
+<input
+type="text"
+id="search"
+class="search-box"
+placeholder="Buscar produto..."
+>
+
+<h2 class="section-title">
+Destaques da Semana
+</h2>
+
+<div class="grid-produtos">
+
+<article class="produto-card">
+
+<div class="produto-img prod-1"></div>
+
+<div class="produto-info">
+
+<p class="produto-categoria">
+Corrida / Performance
+</p>
+
+<h3 class="produto-nome">
+Nike Air Max Dynamic
+</h3>
+
+<p class="produto-preco">
+R$ 899,99
+</p>
+
+<button class="btn-comprar">
+Adicionar ao Carrinho
+</button>
+
+</div>
+
+</article>
+
+<article class="produto-card">
+
+<div class="produto-img prod-2"></div>
+
+<div class="produto-info">
+
+<p class="produto-categoria">
+Casual / Streetwear
+</p>
+
+<h3 class="produto-nome">
+Nike Dunk Low Essential
+</h3>
+
+<p class="produto-preco">
+R$ 749,99
+</p>
+
+<button class="btn-comprar">
+Adicionar ao Carrinho
+</button>
+
+</div>
+
+</article>
+
+<article class="produto-card">
+
+<div class="produto-img prod-3"></div>
+
+<div class="produto-info">
+
+<p class="produto-categoria">
+Treino / Academia
+</p>
+
+<h3 class="produto-nome">
+Jaqueta Nike Windrunner
+</h3>
+
+<p class="produto-preco">
+R$ 549,99
+</p>
+
+<button class="btn-comprar">
+Adicionar ao Carrinho
+</button>
+
+</div>
+
+</article>
+
+</div>
+
+</main>
+
+<footer>
+
+<h3>Nike Clone</h3>
+
+<p>
+© 2026 Todos os direitos reservados.
+</p>
+
+<p>
+Projeto criado para estudos e portfólio.
+</p>
+
+</footer>
+
+<script>
+
+let carrinho = 0;
+
+const contador =
+document.getElementById("cart-count");
+
+document
+.querySelectorAll(".btn-comprar")
+.forEach(botao => {
+
+botao.addEventListener("click", () => {
+
+carrinho++;
+
+contador.textContent = carrinho;
+
+const textoOriginal = botao.textContent;
+
+botao.textContent = "✓ Adicionado";
+
+botao.style.background = "#28a745";
+
+setTimeout(() => {
+
+botao.textContent = textoOriginal;
+botao.style.background = "#111";
+
+},1500);
+
+});
+
+});
+
+const busca =
+document.getElementById("search");
+
+busca.addEventListener("keyup", () => {
+
+const termo =
+busca.value.toLowerCase();
+
+document
+.querySelectorAll(".produto-card")
+.forEach(card => {
+
+const nome =
+card.querySelector(".produto-nome")
+.textContent
+.toLowerCase();
+
+if(nome.includes(termo)){
+card.style.display="block";
+}else{
+card.style.display="none";
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
